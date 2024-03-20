@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>P5 goes live</title>
+    <script src="https://cdn.jsdelivr.net/npm/p5@1.9.1/lib/p5.js"></script>
+</head>
+<body>
+<h1 id="greeting">Hello!</h1>
+<script>
+    //let hello = document.getElementbyId("greeting");
+    //hello.style.backgroundColor = "blue";
+
+        let slider;
+        let button;
+        let selectedColor = [255, 0, 0];
+        
+
+        function setup() {
+            createCanvas(400, 400);
+
+            // Make a Slider
+            slider = createSlider(0,100,2);
+            slider.position(20,50);
+
+            //Make a Button
+            button = createButton('Change the Color!');
+            button.position(20,70);
+            button.mousePressed(colorChange);
+        
+        }
+
+        function draw() {
+            background(220)
+
+            let shapeSize = slider.value();
+            fill(selectedColor);
+            ellipse(width/2, height/2, shapeSize, shapeSize)
+        }
+        
+        function colorChange() {
+            selectedColor = [(Math.floor(Math.random() * 256)), (Math.floor(Math.random() * 256)), (Math.floor(Math.random() * 256))];
+        }
+
+       
+
+</script>
